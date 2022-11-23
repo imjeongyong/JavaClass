@@ -3,7 +3,7 @@ package OOP1;
 class Tv {
 	private String color;
 	private boolean power;
-	private int channel; // 1~100
+	int channel; // 1~100
 
 	void power() {
 		power = !power;
