@@ -1,6 +1,5 @@
 package function;
 
-import java.util.Scanner;
 
 public class q170 {
 
@@ -9,9 +8,6 @@ public class q170 {
 	}
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String str = sc.next();
-		sc.close();
 
 		q170 m = new q170();
 		System.out.println("first");
