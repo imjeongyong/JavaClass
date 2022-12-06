@@ -7,6 +7,7 @@ public class MemberExample2 {
 		Member2 cloned = original.getMember();
 		cloned.password = "67890";
 		cloned.age = 1;
+		
 
 		System.out.println("[복제 객체의 필드값]");
 		System.out.println("id : " + cloned.id);
