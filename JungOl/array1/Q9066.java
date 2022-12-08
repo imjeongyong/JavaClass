@@ -2,11 +2,15 @@ package array1;
 
 public class Q9066 {
 	public static void main(String[] args) {
-		int[] ar = new int[26];
-		
-		int c = 65;
-		for(int i = 0; i<ar.length; i++) {
-			ar[i] = c;
+		char[] charAr = new char[26];
+
+		char c = 'A';
+		for (int i = 0; i < charAr.length; i++) {
+			charAr[i] = c++;
+//			System.out.print(charAr[i]+ " ");
+		}
+		for (int i = charAr.length - 1; i >= 0; i--) {
+			System.out.print(charAr[i] + " ");
 		}
 	}
 }

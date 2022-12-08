@@ -22,7 +22,9 @@ public class Main extends WindowAdapter implements ActionListener {
 
 		p = new Panel(new GridLayout(4, 4));
 
-		tf = new TextField();
+		tf = new TextField("0");
+		tf.setEditable(false); // 텍스트필드 수정x
+		tf.setFocusable(false); // 텍스트필드 커서x
 
 		b0 = new Button("0");
 		b1 = new Button("1");
@@ -42,6 +44,7 @@ public class Main extends WindowAdapter implements ActionListener {
 		beq = new Button("=");
 
 		n1 = 0;
+		n2 = 0;
 		inp = "";
 		op = "";
 	}
@@ -143,7 +146,7 @@ public class Main extends WindowAdapter implements ActionListener {
 			tf.setText(inp);
 		}
 		if (e.getActionCommand().equals("+")) {
-			n1 = n1 + Integer.parseUnsignedInt(inp);
+			n1 = n1 + Integer.parseInt(inp);
 			op = "+";
 			inp = "";
 			System.out.println("int n1 = " + n1);
@@ -151,14 +154,14 @@ public class Main extends WindowAdapter implements ActionListener {
 			tf.setText(op);
 		}
 		if (e.getActionCommand().equals("-")) {
-			n1 = n1 + Integer.parseUnsignedInt(inp);
+			n1 = n1 + Integer.parseInt(inp);
 			op = "-";
 			inp = "";
 			System.out.println("int n1 = " + n1);
 			System.out.println("int n2 = " + n2);
 		}
 		if (e.getActionCommand().equals("*")) {
-			n1 = n1 + Integer.parseUnsignedInt(inp);
+			n1 = n1 + Integer.parseInt(inp);
 			op = "*";
 			inp = "";
 			System.out.println("int n1 = " + n1);
@@ -173,14 +176,15 @@ public class Main extends WindowAdapter implements ActionListener {
 		}
 		if (e.getActionCommand().equals("cancel")) {
 			n1 = 0;
+			n2 = 0;
 			op = "";
 			inp = "";
 			System.out.println("int n1 = " + n1);
 			System.out.println("int n2 = " + n2);
-			tf.setText("");
+			tf.setText("0");
 		}
 		if (e.getActionCommand().equals("=")) {
-			n2 = n2 + Integer.parseUnsignedInt(inp);
+			n2 = Integer.parseInt(inp);
 
 			switch (op) {
 			case "+":
