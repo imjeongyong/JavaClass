@@ -6,15 +6,22 @@ import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class MemoMenu implements ActionListener {
+public class MemoMenu extends WindowAdapter implements ActionListener {
 	Frame f;
+	TextField tf;
 
 	MemoMenu() {
 		f = new Frame("메모장");
 		f.setSize(500, 300);
+		f.addWindowListener(this);
+		
+		tf = new TextField();
 
 		MenuBar mb = new MenuBar();
 		Menu mFile = new Menu("파일(F)");
@@ -27,6 +34,8 @@ public class MemoMenu implements ActionListener {
 		MenuItem miPageU = new MenuItem("페이지 설정(U)");
 		MenuItem miPrint = new MenuItem("인쇄(P)");
 		MenuItem miExit = new MenuItem("끝내기(X)");
+		miExit.addActionListener(this);
+
 
 		mFile.add(miNewF);
 		mFile.add(miNewW);
@@ -107,6 +116,7 @@ public class MemoMenu implements ActionListener {
 
 		f.setMenuBar(mb);
 		f.setVisible(true);
+		f.add(tf);
 	}
 
 	public static void main(String[] args) {
@@ -119,5 +129,12 @@ public class MemoMenu implements ActionListener {
 			fo.setDirectory("C:\\Windows");
 			fo.setVisible(true);
 		}
+		if (e.getActionCommand().equals("끝내기(X)")) {
+			System.exit(0);
+		}
+	}
+
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
 	}
 }
