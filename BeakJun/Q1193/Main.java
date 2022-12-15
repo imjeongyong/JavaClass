@@ -2,14 +2,17 @@ package Q1193;
 
 import java.util.Scanner;
 
-public class Main { // 시간초과...
+public class Main { // for문은 시간초과... whil문으로 바꾸니까 통과됨!!
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int X = sc.nextInt();
 		sc.close();
 
 		int counter = 0;
-		for (int i = 1; i <= X; i++) {
+		boolean b = true;
+		int i = 0;
+		while(b) {
+			i++;
 			int num = i;
 			if (i % 2 == 0) { // 짝수 열
 				num = 1;
@@ -17,7 +20,7 @@ public class Main { // 시간초과...
 					counter++;
 					if (counter == X) {
 						System.out.print(num + "/" + j);
-						break;
+						b=!b;
 					}
 				}
 			} else { // 홀수 열
@@ -26,7 +29,7 @@ public class Main { // 시간초과...
 					counter++;
 					if (counter == X) {
 						System.out.print(num + "/" + j);
-						break;
+						b=!b;
 					}
 				}
 			}
